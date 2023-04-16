@@ -15,3 +15,28 @@ function solveEquation(a, b, c) {
   }
    return arr;
 }
+
+function calculateTotalMortgage(percent, contribution, amount, countMonths) {
+   let totalAmount;
+   let percentTest = Number(percent);
+   let contributionTest = Number(contribution);
+   let amountTest = Number(amount);
+       if (percentTest != Number(percent)){
+           return false ;	
+   } else if (contributionTest != Number(contribution)){
+          return false; 
+   } else if (amountTest != Number(amount)){
+          return false; 
+   }
+     else {
+         let P = ((percent / 12) / 100);
+         let S = amount - contribution;
+         let payment = S * (P + (P / (((1 + P) ** countMonths) - 1)));
+       
+         return Number(parseFloat(payment * countMonths).toFixed(2))
+      };
+     }
+
+console.log(calculateTotalMortgage(10, 0, 20000, 24))
+
+
